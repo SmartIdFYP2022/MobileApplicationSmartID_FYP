@@ -1,7 +1,7 @@
 import i18n from 'i18next';
 import {initReactI18next} from 'react-i18next';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import * as RNLocalize from 'react-native-localize';
+// import * as RNLocalize from 'react-native-localize';
 
 import en from './translations/en';
 import fr from './translations/fr';
@@ -23,9 +23,9 @@ const LANGUAGE_DETECTOR = {
         } else {
           console.log('No language is set, choosing English as fallback');
         }
-        const findBestAvailableLanguage =
-          RNLocalize.findBestAvailableLanguage(LANG_CODES);
-        callback(findBestAvailableLanguage.languageTag || 'en');
+        // const findBestAvailableLanguage =
+        //   RNLocalize.findBestAvailableLanguage(LANG_CODES);
+        callback('en');
         return;
       }
       callback(language);

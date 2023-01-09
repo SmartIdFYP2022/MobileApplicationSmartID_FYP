@@ -4,7 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Provider } from 'react-redux';
 import { navigationRef } from './RootNavigation';
 import { store } from '../redux/store';
-import BottomTabs from './BottomTabs';
+import BottomTabs from './BottomTabs.tsx';
 import WelcomeScreen from '../screens/WelcomeScreen';
 import SignInScreen from '../screens/onboarding/SignInScreen';
 import SignUpScreen from '../screens/onboarding/SignUpScreen';

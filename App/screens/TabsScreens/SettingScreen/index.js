@@ -1,16 +1,16 @@
 import * as React from 'react';
 import {Text,View,TouchableOpacity, SafeAreaView} from 'react-native';
 
-const ChatScreen = () => {
+const SettingScreen = () => {
     return (
         <SafeAreaView style={{flex:1, justifyContent:'center', alignItems:'center'}}>
             <TouchableOpacity>
                 <Text>
-                    Chat
+                    Setting
                 </Text>
             </TouchableOpacity>
         </SafeAreaView>
     );
 }
 
-export default ChatScreen;
+export default SettingScreen;

@@ -14,7 +14,9 @@ export const COLORS = {
     dimGray: '#A9A9A9',
     slateGray: '#dfefff',
     grayBg: '#f3f3f3',
-    headingColor: '#777777'
+    headingColor: '#777777',
+    selectedColor: '#0080ac',
+    tabColor: '#0080ac'
 }
 
 export const SIZES = {

@@ -3,6 +3,8 @@ import { Text, View, TextInput, SafeAreaView, TouchableOpacity } from 'react-nat
 import { useDispatch } from 'react-redux';
 import { COLORS, FONTS, SIZES } from '../../../constants';
 import { loginRequest } from './actions';
+import {Image} from 'react-native'; 
+import {LinearGradient} from 'expo-linear-gradient';
 
 const SignUp = ({ navigation: { replace } }) => {
   const dispatch = useDispatch();
@@ -27,7 +29,8 @@ const SignUp = ({ navigation: { replace } }) => {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.background }} >
       <View style={{ flex: 1, justifyContent: 'flex-start', alignItems: 'center', }}>
-        <Text style={{ ...FONTS.h1, marginVertical: 80, color: COLORS.white }}>LOGIN</Text>
+        <Image source={require('../../../assets/images/logo.png')} />
+        <Text style={{ ...FONTS.h1, color: COLORS.black }}>LOGIN</Text>
         <TextInput
           style={{
             marginTop: 30,
@@ -53,23 +56,32 @@ const SignUp = ({ navigation: { replace } }) => {
         <View style={{ width: '90%', marginTop: 30 }}>
           <TouchableOpacity
             onPress={submitLoginRequest}
-            style={{
-              backgroundColor: COLORS.primary,
-              padding: 15, borderRadius: 20, marginBottom: 20,
-            }}>
-            <Text style={{
-              textAlign: 'center', color: COLORS.white, ...FONTS.h4,
-            }}>Submit</Text>
+            >
+              <LinearGradient
+                start={{x: 0, y: 0}} end={{x: 1, y: 0}}
+                colors={[COLORS.primary, COLORS.primary2]}
+                style={{
+                  padding: 15, borderRadius: 20, marginBottom: 20,
+                }}
+              >
+                <Text style={{
+                textAlign: 'center', color: COLORS.white, ...FONTS.h4,
+                }}>Submit</Text>
+              </LinearGradient>
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => replace('signup')}
-            style={{
-              backgroundColor: COLORS.primary,
-              padding: 15, borderRadius: 20
-            }}>
-            <Text style={{
-              textAlign: 'center', color: COLORS.white, ...FONTS.h4,
-            }}>Sign Up</Text>
+            onPress={() => replace('signup')}>
+              <LinearGradient
+                start={{x: 0, y: 0}} end={{x: 1, y: 0}}
+                colors={[COLORS.primary, COLORS.primary2]}
+                style={{
+                  padding: 15, borderRadius: 20, marginBottom: 20,
+                }}
+              >
+              <Text style={{
+                textAlign: 'center', color: COLORS.white, ...FONTS.h4,
+              }}>Sign Up</Text>
+            </LinearGradient>
           </TouchableOpacity>
         </View>
       </View>

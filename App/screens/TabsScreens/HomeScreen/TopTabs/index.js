@@ -4,11 +4,14 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import { COLORS, FONTS } from '../../../../constants';
 import TabContent from './TabContent';
 
+import CafeScreen from '../../../TabbedScreens/CafeScreen'
+
 const Tab = createMaterialTopTabNavigator();
 
 function Tabs({ state, descriptors, navigation, position }) {
+
     return (
-        <View style={{ flexDirection: 'row', marginTop: 10, marginLeft:10,}}>
+        <View style={{ flexDirection: 'row', marginTop: "10%", marginLeft:10,}}>
             {state.routes.map((route, index) => {
                 const isFocused = state.index === index;
                 const { options } = descriptors[route.key];
@@ -72,21 +75,21 @@ function Tabs({ state, descriptors, navigation, position }) {
 export default function TopTabs() {
     return (<Tab.Navigator tabBar={props => <Tabs {...props} />}>
         <Tab.Screen
-            name="Popular"
+            name="Book Shop "
             component={TabContent}
         />
 
         <Tab.Screen
-            name="Newest"
-            component={TabContent}
+            name="Cafe "
+            component={ CafeScreen }
         />
 
         <Tab.Screen
-            name="For You"
+            name="Library "
             component={TabContent}
         />
         <Tab.Screen
-            name="All"
+            name="Bus"
             component={TabContent}
         />
     </Tab.Navigator>);

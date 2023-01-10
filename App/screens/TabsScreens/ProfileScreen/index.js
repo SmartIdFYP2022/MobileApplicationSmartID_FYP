@@ -28,10 +28,7 @@ export default function App() {
 
                 <View style={{ alignSelf: "center", marginTop: '50%' }}>
                     <View style={styles.profileImage}>
-                        <Image source={require("../../../assets/profile-image/profile-pic.jpg")} style={styles.image} resizeMode="center"></Image>
-                    </View>
-                    <View style={styles.add}>
-                        <Ionicons name="ios-add" size={48} color="#DFD8C8" style={{ marginTop: 1, marginLeft: 4 }}></Ionicons>
+                        <Image source={require("../../../assets/profile-image/profile.jpg")} style={styles.image} resizeMode='stretch'></Image>
                     </View>
                 </View>
 

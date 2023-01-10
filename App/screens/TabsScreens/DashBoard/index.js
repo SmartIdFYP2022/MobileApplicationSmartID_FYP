@@ -16,7 +16,7 @@ import { readData } from '../../../utils';
 const Home = ( { navigation: { navigate } } ) => {
 
     const onProfileScreenPress = () => {
-        navigate('profile');
+        navigate('BottomTabs');
     }
 
     const { t, i18n } = useTranslation();
@@ -30,23 +30,23 @@ const Home = ( { navigation: { navigate } } ) => {
     const featuresData = [
         {
             id: 1,
-            icon: <Image source={require('../../../assets/icons/account.png')}/>,
-            color: COLORS.purple,
-            backgroundColor: COLORS.lightpurple,
+            Image: <Image source={require('../../../assets/images/superior.png')}  style={{width: 10, height: 10}}/>,
+            color: COLORS.background,
+            backgroundColor: COLORS.background,
             description: "Superior UMS"
         },
         {
             id: 2,
-            icon: <Image source={require('../../../assets/icons/account.png')}/>,
-            color: COLORS.yellow,
-            backgroundColor: COLORS.lightyellow,
+            Image: <Image source={require('../../../assets/images/superior.png')}/>,
+            color: COLORS.background,
+            backgroundColor: COLORS.background,
             description: "Superior LMS"
         },
         {
             id: 3,
-            icon: <Image source={require('../../../assets/icons/account.png')}/>,
-            color: COLORS.primary,
-            backgroundColor: COLORS.lightGreen,
+            Image: <Image source={require('../../../assets/images/superior.png')}/>,
+            color: COLORS.background,
+            backgroundColor: COLORS.background,
             description: "Superior ERP"
         }
     ]
@@ -71,18 +71,6 @@ const Home = ( { navigation: { navigate } } ) => {
                             backgroundColor: COLORS.lightGray
                         }}
                     >
-                        <View
-                            style={{
-                                position: 'absolute',
-                                top: -5,
-                                right: -5,
-                                height: 10,
-                                width: 10,
-                                backgroundColor: COLORS.red,
-                                borderRadius: 5
-                            }}
-                        >
-                        </View>
                     </TouchableOpacity>
                 </View>
 
@@ -94,7 +82,7 @@ const Home = ( { navigation: { navigate } } ) => {
         return (
             <View
                 style={{
-                    height: 120,
+                    height: 180,
                     borderRadius: 20,
                 }}
             >
@@ -102,6 +90,7 @@ const Home = ( { navigation: { navigate } } ) => {
                     source={require('../../../assets/icons/account.png')}
                     resizeMode="cover"
                     style={{
+                        backgroundColor: COLORS.black,
                         width: "100%",
                         height: "100%",
                         borderRadius: 20
@@ -115,33 +104,33 @@ const Home = ( { navigation: { navigate } } ) => {
 
         const Header = () => (
             <View style={{ marginBottom: 10 * 2 }}>
-                <Text style={{ fontFamily: "Roboto-Bold", fontSize: 20, lineHeight: 22 }}>Superior University Portal</Text>
+                <Text style={{ fontFamily: "Roboto-Bold", fontSize: 20, lineHeight: 22 }}>University Portal</Text>
             </View>
         )
 
         const renderItem = ({ item }) => (
             <TouchableOpacity
-                style={{ marginBottom: 10 * 2, width: 60, alignItems: 'center' }}
+                style={{ marginBottom: 10 * 2 , alignItems: 'center' }}
                 onPress={() => console.log(item.description)}
             >
                 <View
                     style={{
-                        height: 50,
-                        width: 50,
+                        height: 60,
+                        width: 60,
                         marginBottom: 5,
                         borderRadius: 20,
                         backgroundColor: COLORS.background,
                         alignItems: 'center',
-                        justifyContent: 'center'
+                        justifyContent: 'center',
+                        alignSelf: 'center'
                     }}
                 >
                     <Image
-                        source={require('../../../assets/icons/account.png')}
+                        source={require('../../../assets/images/superior.png')}
                         resizeMode="contain"
                         style={{
-                            height: 20,
-                            width: 20,
-                            tintColor: COLORS.background
+                            height: 45,
+                            width: 45
                         }}
                     />
                 </View>

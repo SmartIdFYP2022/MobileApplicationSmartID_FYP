@@ -2,16 +2,19 @@ import React, { Component } from "react";
 import {
     SafeAreaView,
     View,
+    ScrollView,
     Text,
     Image,
     FlatList,
-    TouchableOpacity
+    TouchableOpacity,
+    StyleSheet
 } from "react-native"
 import { COLORS } from "../../../constants"
 import {Dimensions} from 'react-native';
 const { width, height } = Dimensions.get("window");
 import { useTranslation } from 'react-i18next';
 import { readData } from '../../../utils';
+import {LinearGradient} from 'expo-linear-gradient';
 
 const Home = ( { navigation: { navigate } } ) => {
 
@@ -58,7 +61,7 @@ const Home = ( { navigation: { navigate } } ) => {
             <View style={{ flexDirection: 'row', marginVertical: 10 * 2 , marginTop: '20%'}}>
                 <View style={{ flex: 1 }}>
                     <Text style={{ fontFamily: "Roboto-Black", fontSize: 30, lineHeight: 36 }}>Hello!</Text>
-                    <Text style={{ fontFamily: "Roboto-Regular", fontSize: 20, lineHeight: 30, color: COLORS.gray }}>{email}</Text>
+                    <Text style={{ fontFamily: "Roboto-Regular", fontSize: 24, lineHeight: 30, color: COLORS.black }}>{email}</Text>
                 </View>
 
                 <View style={{ alignItems: 'center', justifyContent: 'center' }}>
@@ -80,23 +83,19 @@ const Home = ( { navigation: { navigate } } ) => {
 
     function renderBanner() {
         return (
-            <View
-                style={{
-                    height: 180,
-                    borderRadius: 20,
-                }}
-            >
-                <Image
-                    source={require('../../../assets/icons/account.png')}
-                    resizeMode="cover"
+                <LinearGradient
+                    start={{x: 0, y: 0}} end={{x: 1, y: 0}}
+                    colors={[COLORS.primary, COLORS.primary2]}
                     style={{
-                        backgroundColor: COLORS.black,
-                        width: "100%",
-                        height: "100%",
-                        borderRadius: 20
-                    }}
-                />
-            </View>
+                    padding: 15, borderRadius: 20, marginBottom: 20,
+                    }}>
+                    <View 
+                        style={{
+                            height: 150,
+                            borderRadius: 20
+                        }}>
+                    </View>
+                </LinearGradient>
         )
     }
 
@@ -154,31 +153,88 @@ const Home = ( { navigation: { navigate } } ) => {
     function renderPromos() {
 
         const HeaderComponent = () => (
-            <View>
+            <ScrollView>
                 {renderHeader()}
                 {renderBanner()}
                 {renderFeatures()}
                 {renderPromoHeader()}
-            </View>
+            </ScrollView>
         )
 
         const renderPromoHeader = (navigation) => (
-            <View
-                style={{
-                    flexDirection: 'row',
-                    marginBottom: 10
-                }}
-            >
-                <View style={{ flex: 1 }}>
-                    <Text style={{ fontFamily: "Roboto-Bold", fontSize: 20, lineHeight: 22 }}>Daily Report</Text>
-                </View>
-                <TouchableOpacity
-                    onPress={ onProfileScreenPress }
+            <View style={{marginTop: '5%'}}>
+                <View
+                    style={{
+                        flexDirection: 'row',
+                        marginBottom: 10
+                    }}
                 >
-                    <Text style={{ color: COLORS.gray, fontFamily: "Roboto-Regular", fontSize: 14, lineHeight: 22 }}>View All</Text>
-                </TouchableOpacity>
+                    <View style={{ flex: 1 }}>
+                        <Text style={{ fontFamily: "Roboto-Bold", fontSize: 20, lineHeight: 22 }}>Daily Report</Text>
+                    </View>
+                    <TouchableOpacity
+                        onPress={ onProfileScreenPress }
+                    >
+                        <Text style={{ color: COLORS.gray, fontFamily: "Roboto-Regular", fontSize: 14, lineHeight: 22 }}>View All</Text>
+                    </TouchableOpacity>
+                </View>
+                <ScrollView>
+                    <View style={{ alignItems: "center" }}>
+                        <View style={styles.recentItem}>
+                            <View style={styles.activityIndicator}></View>
+                            <View style={{ width: 250 }}>
+                                <Text style={[styles.text, { color: "#41444B", fontWeight: "300" }]}>
+                                    Started following <Text style={{ fontWeight: "400" }}>Jake Challeahe</Text> and <Text style={{ fontWeight: "400" }}>Luis Poteer</Text>
+                                </Text>
+                            </View>
+                        </View>
+                        <View style={styles.recentItem}>
+                            <View style={styles.activityIndicator}></View>
+                            <View style={{ width: 250 }}>
+                                <Text style={[styles.text, { color: "#41444B", fontWeight: "300" }]}>
+                                    Started following <Text style={{ fontWeight: "400" }}>Luke Harper</Text>
+                                </Text>
+                            </View>
+                        </View>
+                    </View>
+                    <View style={{ alignItems: "center" }}>
+                        <View style={styles.recentItem}>
+                            <View style={styles.activityIndicator}></View>
+                            <View style={{ width: 250 }}>
+                                <Text style={[styles.text, { color: "#41444B", fontWeight: "300" }]}>
+                                    Started following <Text style={{ fontWeight: "400" }}>Jake Challeahe</Text> and <Text style={{ fontWeight: "400" }}>Luis Poteer</Text>
+                                </Text>
+                            </View>
+                        </View>
+                        <View style={styles.recentItem}>
+                            <View style={styles.activityIndicator}></View>
+                            <View style={{ width: 250 }}>
+                                <Text style={[styles.text, { color: "#41444B", fontWeight: "300" }]}>
+                                    Started following <Text style={{ fontWeight: "400" }}>Luke Harper</Text>
+                                </Text>
+                            </View>
+                        </View>
+                    </View>
+                    <View style={{ alignItems: "center" }}>
+                        <View style={styles.recentItem}>
+                            <View style={styles.activityIndicator}></View>
+                            <View style={{ width: 250 }}>
+                                <Text style={[styles.text, { color: "#41444B", fontWeight: "300" }]}>
+                                    Started following <Text style={{ fontWeight: "400" }}>Jake Challeahe</Text> and <Text style={{ fontWeight: "400" }}>Luis Poteer</Text>
+                                </Text>
+                            </View>
+                        </View>
+                        <View style={styles.recentItem}>
+                            <View style={styles.activityIndicator}></View>
+                            <View style={{ width: 250 }}>
+                                <Text style={[styles.text, { color: "#41444B", fontWeight: "300" }]}>
+                                    Started following <Text style={{ fontWeight: "400" }}>Luke Harper</Text>
+                                </Text>
+                            </View>
+                        </View>
+                    </View>
+                </ScrollView>
             </View>
-
         )
 
         const renderItem = ({ item }) => (
@@ -236,5 +292,127 @@ const Home = ( { navigation: { navigate } } ) => {
         </SafeAreaView>
     )
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: COLORS.background
+    },
+    text: {
+        fontFamily: "HelveticaNeue",
+        color: "#52575D"
+    },
+    image: {
+        flex: 1,
+        height: undefined,
+        width: undefined,
+    },
+    titleBar: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        marginTop: 24,
+        marginHorizontal: 16
+    },
+    subText: {
+        fontSize: 12,
+        color: COLORS.white,
+        textTransform: "uppercase",
+        fontWeight: "500"
+    },
+    profileImage: {
+        width: 200,
+        height: 200,
+        borderRadius: 100,
+        overflow: "hidden"
+    },
+    dm: {
+        backgroundColor: "#41444B",
+        position: "absolute",
+        top: 20,
+        width: 40,
+        height: 40,
+        borderRadius: 20,
+        alignItems: "center",
+        justifyContent: "center"
+    },
+    active: {
+        backgroundColor: "#34FFB9",
+        position: "absolute",
+        bottom: 28,
+        left: 10,
+        padding: 4,
+        height: 20,
+        width: 20,
+        borderRadius: 10
+    },
+    add: {
+        backgroundColor: "#41444B",
+        position: "absolute",
+        bottom: 0,
+        right: 0,
+        width: 60,
+        height: 60,
+        borderRadius: 30,
+        alignItems: "center",
+        justifyContent: "center"
+    },
+    infoContainer: {
+        alignSelf: "center",
+        alignItems: "center",
+        marginTop: 16
+    },
+    statsContainer: {
+        flexDirection: "row",
+        alignSelf: "center",
+        marginTop: '10%'
+    },
+    statsBox: {
+        alignItems: "center",
+        flex: 1
+    },
+    mediaImageContainer: {
+        width: 180,
+        height: 200,
+        borderRadius: 12,
+        overflow: "hidden",
+        marginHorizontal: 10
+    },
+    mediaCount: {
+        backgroundColor: "#41444B",
+        position: "absolute",
+        top: "50%",
+        marginTop: -50,
+        marginLeft: 30,
+        width: 100,
+        height: 100,
+        alignItems: "center",
+        justifyContent: "center",
+        borderRadius: 12,
+        shadowColor: "rgba(0, 0, 0, 0.38)",
+        shadowOffset: { width: 0, height: 10 },
+        shadowRadius: 20,
+        shadowOpacity: 1
+    },
+    recent: {
+        marginLeft: 78,
+        marginTop: 32,
+        marginBottom: 6,
+        fontSize: 10
+    },
+    recentItem: {
+        flexDirection: "row",
+        alignItems: "flex-start",
+        marginBottom: 16
+    },
+    activityIndicator: {
+        backgroundColor: "#CABFAB",
+        padding: 4,
+        height: 12,
+        width: 12,
+        borderRadius: 6,
+        marginTop: 3,
+        marginRight: 20
+    }
+});
 
 export default Home;

@@ -36,7 +36,7 @@ export default function App() {
                 </View>
 
                 <View style={styles.infoContainer}>
-                    <Text style={[styles.text, { fontWeight: "200", fontSize: 36 }]}></Text>
+                    <Text style={[styles.text, { fontWeight: "200", fontSize: 36 }]}>{email}</Text>
                 </View>
 
                 <View style={styles.statsContainer}>

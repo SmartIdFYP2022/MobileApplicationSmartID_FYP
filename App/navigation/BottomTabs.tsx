@@ -41,7 +41,7 @@ const App = () => {
           tabBar={(props) => <AnimatedTabBar {...props} />}
           screenOptions={{headerShown: false}}
         >
-          
+
           <Tab.Screen
             name="Home"
             options={{

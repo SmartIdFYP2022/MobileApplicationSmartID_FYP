@@ -1,19 +1,19 @@
 import * as React from 'react';
 import { Animated, View, TouchableOpacity, Text } from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import { COLORS, FONTS } from '../../../../constants';
+import { COLORS, FONTS } from '../../../constants';
 
-import CafeScreen from '../../../TabbedScreens/CafeScreen';
-import BookShopScreen from '../../../TabbedScreens/BookShopScreen';
-import BusScreen from '../../../TabbedScreens/BusScreen';
-import LibraryScreen from '../../../TabbedScreens/LibraryScreen'
+import CafeScreen from './CafeScreen';
+import BookShopScreen from './BookShopScreen';
+import BusScreen from './BusScreen';
+import LibraryScreen from './LibraryScreen'
 
 const Tab = createMaterialTopTabNavigator();
 
 function Tabs({ state, descriptors, navigation, position }) {
 
     return (
-        <View style={{ flexDirection: 'row', marginTop: "10%", marginLeft:10,}}>
+        <View style={{ flexDirection: 'row', marginLeft:10,}}>
             {state.routes.map((route, index) => {
                 const isFocused = state.index === index;
                 const { options } = descriptors[route.key];

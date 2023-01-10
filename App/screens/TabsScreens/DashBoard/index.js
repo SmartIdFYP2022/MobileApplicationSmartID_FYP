@@ -16,7 +16,7 @@ import { readData } from '../../../utils';
 const Home = ( { navigation: { navigate } } ) => {
 
     const onProfileScreenPress = () => {
-        navigate('BottomTabs');
+        navigate('detail');
     }
 
     const { t, i18n } = useTranslation();

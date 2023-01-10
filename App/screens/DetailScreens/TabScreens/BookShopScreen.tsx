@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet, View, TouchableOpacity, ViewToken } from 'react-native';
+import { FlatList, StyleSheet, View, TouchableOpacity, ViewToken, Image } from 'react-native';
 import { useSharedValue } from 'react-native-reanimated';
 import { ListItem } from '../../../components/ListItem';
 import { COLORS } from '../../../constants';
@@ -11,27 +11,6 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity
-                style={{
-                    flexDirection: 'row',
-                    alignItems: "center",
-                    marginTop: SIZES.padding * 6,
-                    paddingHorizontal: SIZES.padding * 2
-                }}
-                onPress={() => console.log("Sign Up")}
-            >
-                <Image
-                    source={icons.back}
-                    resizeMode="contain"
-                    style={{
-                        width: 20,
-                        height: 20,
-                        tintColor: COLORS.white
-                    }}
-                />
-
-                <Text style={{ marginLeft: SIZES.padding * 1.5, color: COLORS.white, ...FONTS.h4 }}>Sign Up</Text>
-            </TouchableOpacity>
       <FlatList
         data={data}
         contentContainerStyle={{ paddingTop: 10, paddingBottom: 10 }}

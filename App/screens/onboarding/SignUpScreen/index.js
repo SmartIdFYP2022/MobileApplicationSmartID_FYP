@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
-import { Text, View, TextInput, SafeAreaView, TouchableOpacity } from 'react-native';
+import { Text, View, TextInput, SafeAreaView, TouchableOpacity, Image } from 'react-native';
 import { COLORS, FONTS, SIZES } from '../../../constants';
 import { signUpRequest } from './actions';
 import { useDispatch } from 'react-redux';
+import {Dimensions} from 'react-native';
+const { width, height } = Dimensions.get("window");
+import {LinearGradient} from 'expo-linear-gradient';
 
 const SignUp = ({ navigation: { replace } }) => {
     const [email, setEmail] = useState('');
@@ -28,12 +31,13 @@ const SignUp = ({ navigation: { replace } }) => {
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.background }} >
             <View style={{ flex: 1, justifyContent: 'flex-start', alignItems: 'center', }}>
-                <Text style={{ ...FONTS.h1, marginVertical: 80, color: COLORS.white }}>SIGN UP</Text>
+                <Image source={require('../../../assets/images/logo.png')}/>
+                <Text style={{ ...FONTS.h1, marginTop:-60 , color: COLORS.black }}>SIGN UP</Text>
                 <TextInput
                     style={{
                         marginTop: 10,
                         borderRadius: 30,
-                        width: SIZES.width - 40,
+                        width: width - 40,
                         padding: 15, backgroundColor: COLORS.lightBg
                     }}
                     placeholder='Name'
@@ -44,7 +48,7 @@ const SignUp = ({ navigation: { replace } }) => {
                     style={{
                         marginTop: 20,
                         borderRadius: 30,
-                        width: SIZES.width - 40,
+                        width: width - 40,
                         padding: 15, backgroundColor: COLORS.lightBg
                     }}
                     placeholder='Email'
@@ -55,33 +59,41 @@ const SignUp = ({ navigation: { replace } }) => {
                     style={{
                         marginTop: 20,
                         borderRadius: 30,
-                        width: SIZES.width - 40,
+                        width: width - 40,
                         padding: 15, backgroundColor: COLORS.lightBg
                     }}
                     placeholder='Password'
                     value={password}
                     onChangeText={(text) => onChange('password', text)}
                 />
-                <View style={{ width: '90%', marginTop: 80 }}>
+                <View style={{ width: '90%', marginTop: 30 }}>
                     <TouchableOpacity
-                        onPress={submitSignup}
-                        style={{
-                            backgroundColor: COLORS.primary,
-                            padding: 15, borderRadius: 20, marginBottom: 20,
-                        }}>
+                        onPress={submitSignup}>
+                            <LinearGradient
+                  start={{x: 0, y: 0}} end={{x: 1, y: 0}}
+                  colors={[COLORS.primary, COLORS.primary2]}
+                  style={{
+                    padding: 15, borderRadius: 20, marginBottom: 20,
+                  }}
+                >
                         <Text style={{
                             textAlign: 'center', color: COLORS.white, ...FONTS.h4,
                         }}>Submit</Text>
+                        </LinearGradient>
                     </TouchableOpacity>
                     <TouchableOpacity
-                        onPress={() => replace('login')}
-                        style={{
-                            backgroundColor: COLORS.primary,
-                            padding: 15, borderRadius: 20
-                        }}>
+                        onPress={() => replace('login')}>
+                            <LinearGradient
+                  start={{x: 0, y: 0}} end={{x: 1, y: 0}}
+                  colors={[COLORS.primary, COLORS.primary2]}
+                  style={{
+                    padding: 15, borderRadius: 20, marginBottom: 20,
+                  }}
+                >
                         <Text style={{
                             textAlign: 'center', color: COLORS.white, ...FONTS.h4,
                         }}>Login</Text>
+                        </LinearGradient>
                     </TouchableOpacity>
                 </View>
             </View>

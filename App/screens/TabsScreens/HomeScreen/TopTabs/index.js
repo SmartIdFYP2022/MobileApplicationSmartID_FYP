@@ -4,7 +4,10 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import { COLORS, FONTS } from '../../../../constants';
 import TabContent from './TabContent';
 
-import CafeScreen from '../../../TabbedScreens/CafeScreen'
+import CafeScreen from '../../../TabbedScreens/CafeScreen';
+import BookShopScreen from '../../../TabbedScreens/BookShopScreen';
+import BusScreen from '../../../TabbedScreens/BusScreen';
+import LibraryScreen from '../../../TabbedScreens/LibraryScreen'
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -76,7 +79,7 @@ export default function TopTabs() {
     return (<Tab.Navigator tabBar={props => <Tabs {...props} />}>
         <Tab.Screen
             name="Book Shop "
-            component={TabContent}
+            component={BookShopScreen}
         />
 
         <Tab.Screen
@@ -86,11 +89,11 @@ export default function TopTabs() {
 
         <Tab.Screen
             name="Library "
-            component={TabContent}
+            component={LibraryScreen}
         />
         <Tab.Screen
             name="Bus"
-            component={TabContent}
+            component={BusScreen}
         />
     </Tab.Navigator>);
 }

@@ -4,6 +4,7 @@ import Animated, {
   useAnimatedStyle,
   withTiming,
 } from 'react-native-reanimated';
+import { COLORS } from '../constants';
 
 type ListItemProps = {
   viewableItems: Animated.SharedValue<ViewToken[]>;
@@ -37,7 +38,7 @@ const ListItem: React.FC<ListItemProps> = React.memo(
           {
             height: 80,
             width: '90%',
-            backgroundColor: '#78CAD2',
+            backgroundColor: COLORS.slateGray,
             alignSelf: 'center',
             borderRadius: 15,
             marginTop: 20,

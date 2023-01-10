@@ -12,7 +12,6 @@ import Dashboard from '../screens/TabsScreens/DashBoard';
 import HomeScreen from '../screens/TabsScreens/HomeScreen';
 import ProfileScreen from '../screens/TabsScreens/ProfileScreen';
 import SettingScreen from '../screens/TabsScreens/SettingScreen';
-import CafeScreen from '../screens/TabbedScreens/CafeScreen';
 
 const Stack = createNativeStackNavigator();
 const screenOptions = {
@@ -37,7 +36,6 @@ export default function MainNavigator() {
                     <Stack.Screen name="homescreen" component={HomeScreen} />
                     <Stack.Screen name="profile" component={ProfileScreen} />
                     <Stack.Screen name="setting" component={SettingScreen} />
-                    <Stack.Screen name="cafeScreen" component={CafeScreen} />
                 </Stack.Navigator>
             </NavigationContainer>
         </Provider>

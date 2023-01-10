@@ -231,7 +231,7 @@ const Home = ( { navigation: { navigate } } ) => {
     }
 
     return (
-        <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
+        <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.background }}>
             {renderPromos()}
         </SafeAreaView>
     )

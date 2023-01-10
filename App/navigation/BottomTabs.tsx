@@ -83,7 +83,7 @@ const App = () => {
 
 const PlaceholderScreen = () => {
   return (
-    <View style={{ flex: 1, backgroundColor: '#f5faff' }} />
+    <View style={{ flex: 1, backgroundColor: COLORS.background }} />
   )
 }
 

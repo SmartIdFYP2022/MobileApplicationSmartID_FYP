@@ -1,6 +1,12 @@
 node_modules/
 .expo/
 dist/
+.vs/
+obj/
+bin/
+aspnet-core/src/SmartPay.Web.Host/App_Data/Logs/
+aspnet-core/src/SmartPay.Web.Mvc/App_Data/Logs/
+aspnet-core/src/SmartPay.Migrator/Logs/Logs.txt
 npm-debug.*
 *.jks
 *.p8

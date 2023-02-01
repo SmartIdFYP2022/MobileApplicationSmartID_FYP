@@ -62,6 +62,12 @@ export class SidebarMenuComponent extends AppComponentBase implements OnInit {
                 'fas fa-users',
                 'Pages.Users'
             ),
+            new MenuItem(
+                this.l('Manage Accounts'),
+                '/app/smartaccount/manage-smartaccount/manage-account',
+                'fas fa-users',
+                'Pages.Accountants'
+            ),
             new MenuItem(this.l('About'), '/app/about', 'fas fa-info-circle'),
 
             //new MenuItem(this.l('MultiLevelMenu'), '', 'fas fa-circle', '', [

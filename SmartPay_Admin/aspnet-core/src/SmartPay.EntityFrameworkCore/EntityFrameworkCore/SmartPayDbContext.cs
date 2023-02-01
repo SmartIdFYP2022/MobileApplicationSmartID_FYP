@@ -3,6 +3,7 @@ using Abp.Zero.EntityFrameworkCore;
 using SmartPay.Authorization.Roles;
 using SmartPay.Authorization.Users;
 using SmartPay.MultiTenancy;
+using SmartPay.SmartAccounts;
 
 namespace SmartPay.EntityFrameworkCore
 {
@@ -10,6 +11,8 @@ namespace SmartPay.EntityFrameworkCore
     {
         /* Define a DbSet for each entity of the application */
         
+        public DbSet<Account> Accounts { get; set; }
+       
         public SmartPayDbContext(DbContextOptions<SmartPayDbContext> options)
             : base(options)
         {

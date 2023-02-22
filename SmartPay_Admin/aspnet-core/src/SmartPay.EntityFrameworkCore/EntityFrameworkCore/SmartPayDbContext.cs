@@ -4,6 +4,7 @@ using SmartPay.Authorization.Roles;
 using SmartPay.Authorization.Users;
 using SmartPay.MultiTenancy;
 using SmartPay.SmartAccounts;
+using SmartPay.Transactions;
 
 namespace SmartPay.EntityFrameworkCore
 {
@@ -13,6 +14,7 @@ namespace SmartPay.EntityFrameworkCore
         
         public DbSet<Account> Accounts { get; set; }
        
+        public DbSet<Transaction> Transactions { get; set; }
         public SmartPayDbContext(DbContextOptions<SmartPayDbContext> options)
             : base(options)
         {

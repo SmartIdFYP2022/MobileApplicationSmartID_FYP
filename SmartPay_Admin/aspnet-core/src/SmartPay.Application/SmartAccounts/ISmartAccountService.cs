@@ -10,5 +10,6 @@ namespace SmartPay.SmartAccounts
 {
     public interface ISmartAccountService: IAsyncCrudAppService<SmartAccountDto,long>
     {
+        Task PointTransferToUserByAccountantAsync(long soucrseAccId, long destinationAccId, decimal amountTranfered);
     }
 }

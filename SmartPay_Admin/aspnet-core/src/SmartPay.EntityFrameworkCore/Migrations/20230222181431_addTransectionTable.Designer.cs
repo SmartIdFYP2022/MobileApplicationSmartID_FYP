@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SmartPay.EntityFrameworkCore;
 
@@ -11,9 +12,10 @@ using SmartPay.EntityFrameworkCore;
 namespace SmartPay.Migrations
 {
     [DbContext(typeof(SmartPayDbContext))]
-    partial class SmartPayDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230222181431_addTransectionTable")]
+    partial class addTransectionTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

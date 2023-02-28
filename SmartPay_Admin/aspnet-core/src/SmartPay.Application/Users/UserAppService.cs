@@ -22,6 +22,7 @@ using SmartPay.Roles.Dto;
 using SmartPay.Users.Dto;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using SmartPay.UserInformation;
 
 namespace SmartPay.Users
 {
@@ -245,6 +246,18 @@ namespace SmartPay.Users
             }
 
             return true;
+        }
+
+        public async Task<UserDto> GetCurrentLoginUserClaimsAsyns()
+        {
+            var user = await _userManager.FindByIdAsync(AbpSession.GetUserId().ToString());
+            UserDto userDto = new UserDto();
+            if (user != null)
+            {
+                 userDto = base.MapToEntityDto(user);
+            }
+
+            return userDto;
         }
     }
 }

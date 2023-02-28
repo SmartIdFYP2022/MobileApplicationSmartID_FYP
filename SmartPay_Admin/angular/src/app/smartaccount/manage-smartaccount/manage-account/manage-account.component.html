@@ -1,1 +1,11 @@
-<p>manage-account works!</p>
+<div class="card-deck">
+    <div class="card bg-light">
+        <div class="card-body text-center">
+            <label>Amount:</label>
+          Rs :<p class="card-text">{{UserDto.amount}}</p> 
+        </div>
+        
+        <button onclick="" [hidden]="!isAddAmountButtonDisplay">Add Amount</button>
+    </div>
+</div>
+

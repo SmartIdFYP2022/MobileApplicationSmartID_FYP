@@ -36,5 +36,7 @@ namespace SmartPay.Users.Dto
         public DateTime CreationTime { get; set; }
 
         public string[] RoleNames { get; set; }
+
+        public decimal Amount { get; set; }
     }
 }

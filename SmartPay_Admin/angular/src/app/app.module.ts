@@ -39,6 +39,7 @@ import { SidebarLogoComponent } from './layout/sidebar-logo.component';
 import { SidebarUserPanelComponent } from './layout/sidebar-user-panel.component';
 import { SidebarMenuComponent } from './layout/sidebar-menu.component';
 import { ManageAccountComponent } from './smartaccount/manage-smartaccount/manage-account/manage-account.component';
+import { TransferAmountComponent } from './smartaccount/transfer-amount/transfer-amount/transfer-amount.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { ManageAccountComponent } from './smartaccount/manage-smartaccount/manag
     SidebarLogoComponent,
     SidebarUserPanelComponent,
     SidebarMenuComponent,
-    ManageAccountComponent
+    ManageAccountComponent,
+    TransferAmountComponent
   ],
   imports: [
     CommonModule,

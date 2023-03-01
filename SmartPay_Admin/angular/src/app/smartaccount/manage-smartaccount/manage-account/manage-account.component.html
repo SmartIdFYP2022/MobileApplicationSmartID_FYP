@@ -1,11 +1,17 @@
-<div class="card-deck">
-    <div class="card bg-light">
-        <div class="card-body text-center">
-            <label>Amount:</label>
-          Rs :<p class="card-text">{{UserDto.amount}}</p> 
+<div class="row">
+    <div class="col-4">
+        <div class="card-deck">
+            <div class="card bg-light">
+                <div class="card-body text-center">
+                    <label>Amount:</label>
+                  Rs :<span class="card-text" >{{UserDto.amount}}</span> 
+                </div>
+                
+                <button class="btn-secondary" type="button" (click)="AddAmount()" [hidden]="!isAddAmountButtonDisplay">Add Amount</button>
+            </div>
         </div>
-        
-        <button onclick="" [hidden]="!isAddAmountButtonDisplay">Add Amount</button>
     </div>
+
 </div>
+
 

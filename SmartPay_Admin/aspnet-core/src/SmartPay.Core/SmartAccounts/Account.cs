@@ -11,7 +11,7 @@ namespace SmartPay.SmartAccounts
     {
         public long UserId { get; set; }
 
-        public int PhoneNumber { get; set; }
+        public long PhoneNumber { get; set; } //// Naveed Change form database int to bigint
 
         public decimal AccountBlance { get; set; }
 

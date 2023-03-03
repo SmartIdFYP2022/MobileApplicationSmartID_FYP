@@ -1,7 +1,7 @@
 <form
 class="form-horizontal"
 autocomplete="off"
-#editUserModal="ngForm"
+#transferPointModal="ngForm"
 (ngSubmit)="save()"
 >
 <abp-modal-header
@@ -9,10 +9,39 @@ title="Send Points"
 (onCloseClick)="bsModalRef.hide()"
 ></abp-modal-header>
 <div class="modal-body">
-    <label>Send To:</label>
-    <select>
-        <option *ngFor="let item of Users.items" [ngValue]="item.id">{{item.userName}}</option>
-    </select>
+    <label>Is Student:</label><input type="checkbox" id="isStudent" name="isStudent" value="true" [(ngModel)]="isStudent" (input)="OnValueChnage($event)">
+    <div [hidden]="isStudent">
+        <div class="row">
+            <div class="col-12">
+                <label>Send To:</label>
+                <select [(ngModel)]="transfer.destinationAccId" name="destinationAccId" style="width: 100%" aria-placeholder="Select User">
+                    <option *ngFor="let item of Users" [ngValue]="item?.id">{{item?.userName}}</option>
+                  </select>      
+            </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <label>Points</label>
+                        <input [(ngModel)]="transfer.amountTranfered" name="amountTranfered" placeholder="Enter Point" type="number" style="width: 100%; margin-top: 3;"/>
+                    </div>
+                </div>
+    </div>
+    <div [hidden]="!isStudent">
+        <div class="row">
+            <div class="col-12">
+                <label>Send To:</label>
+                <select [(ngModel)]="transfer.destinationAccId" name="destinationAccId" style="width: 100%" aria-placeholder="Select User">
+                    <option *ngFor="let item of UsersInfo" [ngValue]="item.id">{{item.firstName}} {{item.lastName}}</option>
+                  </select>      
+            </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <label>Points</label>
+                        <input [(ngModel)]="transfer.amountTranfered" name="amountTranfered" placeholder="Enter Point" type="number" style="width: 100%; margin-top: 3;"/>
+                    </div>
+                </div>
+    </div>
 </div>
 
 <abp-modal-footer

@@ -36,6 +36,12 @@ namespace SmartPay.Users.Dto
         [DisableAuditing]
         public string Password { get; set; }
 
+        public long PhoneNumber { get; set; }
+
+        public decimal AccountBlance { get; set; }
+
+        public string AccountType { get; set; }
+
         public void Normalize()
         {
             if (RoleNames == null)

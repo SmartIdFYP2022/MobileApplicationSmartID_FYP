@@ -4,7 +4,7 @@
             <div class="card bg-light">
                 <div class="card-body text-center">
                     <label>Amount:</label>
-                  Rs :<span class="card-text" >{{UserDto.amount}}</span> 
+                  Rs :<span class="card-text" >{{UserDto?.amount}}</span> 
                 </div>
                 
                 <button class="btn-secondary" type="button" (click)="AddAmount()" [hidden]="!isAddAmountButtonDisplay">Add Amount</button>

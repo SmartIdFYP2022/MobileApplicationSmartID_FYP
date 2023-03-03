@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using Abp.Application.Services;
 using Abp.Application.Services.Dto;
 using SmartPay.Roles.Dto;
+using SmartPay.SmartAccounts.Dto;
 using SmartPay.Users.Dto;
 
 namespace SmartPay.Users

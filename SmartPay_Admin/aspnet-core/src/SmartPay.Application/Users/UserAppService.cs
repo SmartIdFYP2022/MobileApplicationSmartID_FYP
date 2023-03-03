@@ -23,6 +23,8 @@ using SmartPay.Users.Dto;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SmartPay.UserInformation;
+using SmartPay.SmartAccounts;
+using SmartPay.SmartAccounts.Dto;
 
 namespace SmartPay.Users
 {
@@ -35,6 +37,8 @@ namespace SmartPay.Users
         private readonly IPasswordHasher<User> _passwordHasher;
         private readonly IAbpSession _abpSession;
         private readonly LogInManager _logInManager;
+        private readonly IRepository<Account, long> _accountRepository;
+
 
         public UserAppService(
             IRepository<User, long> repository,
@@ -43,7 +47,8 @@ namespace SmartPay.Users
             IRepository<Role> roleRepository,
             IPasswordHasher<User> passwordHasher,
             IAbpSession abpSession,
-            LogInManager logInManager)
+            LogInManager logInManager,
+            IRepository<Account, long> accountRepository)
             : base(repository)
         {
             _userManager = userManager;
@@ -52,6 +57,7 @@ namespace SmartPay.Users
             _passwordHasher = passwordHasher;
             _abpSession = abpSession;
             _logInManager = logInManager;
+            _accountRepository = accountRepository;
         }
 
         public override async Task<UserDto> CreateAsync(CreateUserDto input)
@@ -71,8 +77,20 @@ namespace SmartPay.Users
             {
                 CheckErrors(await _userManager.SetRolesAsync(user, input.RoleNames));
             }
-
             CurrentUnitOfWork.SaveChanges();
+
+            Account userAccount = new Account()
+            {
+                UserId = user.Id,
+                PhoneNumber = input.PhoneNumber,
+                AccountBlance = input.AccountBlance,
+                IsActive =true,
+                AccountType= input.AccountType,
+                CreationTime = DateTime.Now,
+                CreatorUserId = AbpSession.UserId
+            };
+
+            await _accountRepository.InsertAsync(userAccount);
 
             return MapToEntityDto(user);
         }
@@ -247,6 +265,8 @@ namespace SmartPay.Users
 
             return true;
         }
+
+        [AbpAuthorize(PermissionNames.Pages_Accountants)]
 
         public async Task<UserDto> GetCurrentLoginUserClaimsAsyns()
         {

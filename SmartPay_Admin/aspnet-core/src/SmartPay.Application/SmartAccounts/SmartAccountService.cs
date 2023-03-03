@@ -27,21 +27,25 @@ namespace SmartPay.SmartAccounts
 
         [AbpAuthorize(PermissionNames.Pages_Accountants)]
 
-        public async Task PointTransferToUserByAccountantAsync(long soucrseAccId,long destinationAccId,decimal amountTranfered )
+        public async Task PointTransferToUserByAccountantAsync(TransferPointDto transferPointDto)
         {
-            Account destinationaccount = await _accountRepository.GetAsync(destinationAccId);
-            Account sourceaccount = await _accountRepository.GetAsync(soucrseAccId);
-            if(destinationaccount.IsActive)
+            var accounts =  await _accountRepository.GetAllListAsync();
+
+            Account sourceaccount = accounts.FirstOrDefault(x => x.UserId == transferPointDto.SoucrseAccId);
+            Account destinationaccount = accounts.FirstOrDefault(x => x.UserId == transferPointDto.DestinationAccId);
+
+            if (destinationaccount.IsActive)
             {
-                destinationaccount.AccountBlance += amountTranfered;
+                sourceaccount.AccountBlance -= destinationaccount.AccountBlance;
+                destinationaccount.AccountBlance += transferPointDto.AmountTranfered;
 
                 Transaction transaction = new Transaction() 
                 {
-                   SourceAccountId = soucrseAccId,
-                   DestinationAccountId = destinationAccId,
+                   SourceAccountId = transferPointDto.SoucrseAccId,
+                   DestinationAccountId = transferPointDto.DestinationAccId,
                    CreationTime = DateTime.Now,
-                   CreatorUserId= soucrseAccId,
-                   PrincipalAmount = amountTranfered,
+                   CreatorUserId= transferPointDto.SoucrseAccId,
+                   PrincipalAmount = transferPointDto.AmountTranfered,
                    DepartmentId = 1,
                 };
 
